@@ -23,3 +23,13 @@ export interface ApiList<T> {
   hasPrev: boolean;
   hasNext: boolean;
 }
+
+export type SortOrder = "asc" | "desc";
+
+export type AddOrderFormValues = {
+  customer: string;
+  orderNumber: string;
+  status: OrderStatus;
+  totalGross: string;
+  dueDate: string;
+};

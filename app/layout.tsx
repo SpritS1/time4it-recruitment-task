@@ -1,8 +1,7 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { RouteProvider } from "@/providers/route-provider";
-import { ThemeProvider } from "@/providers/theme-provider";
 import "@/app/globals.css";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,10 +14,6 @@ export const metadata: Metadata = {
   description: "Your app description",
 };
 
-export const viewport: Viewport = {
-  colorScheme: "light",
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -26,14 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="pl"
       className={`${inter.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body className="bg-primary antialiased">
-        <RouteProvider>
-          <ThemeProvider>{children}</ThemeProvider>
-        </RouteProvider>
+        {children}
+        <Toaster />
       </body>
     </html>
   );
